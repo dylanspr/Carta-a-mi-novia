@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARA EL AMOR DE MI VIDA❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFC1C1, #FFD6A5);
+            color: #5A2D0C;
+            font-family: 'La Belle Aurore', serif;
+            flex-direction: column;
+        }
+
+        .titulo {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .subtitulo, .dedicatoria {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: left; 
+            margin: 0 auto;
+            width: 80%;
+            white-space: pre-wrap;
+        }
+
+        .dedicatoria {
+            display: none;
+        }
+
+        audio {
+            display: none; 
+        }
+
+        button {
+            background-color: #FF8070;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            display: none;  
+        }
+
+        button:hover {
+            background-color: #E46A5A;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">💝Para el Amor de Mi Vida💝</h1>
+    <div class="subtitulo" id="subtitulo"></div>
+    <button id="playMusic">♫♬♪♩♫♬♪♩𝄞</button>
+    <div class="dedicatoria" id="dedicatoria"></div>
+
+    <audio id="audioPlayer" loop>
+        <source src="pcn.mp3" type="audio/mpeg">
+        Tu navegador no soporta el reproductor de audio.
+    </audio>
+
+    <script>
+        const subtituloText = `
+        Hola amor, ¿cómo estás? Espero que bien, bueno primero, si estás leyendo esto significa que estamos cara a cara AJSAJJAJAJAJ, lpm.
+         Que sepas que por dentro me estoy muriendo de la vergüenza, pero bueno, esto es un regalito (si así se lo puede llamar) que te quería dar por ser la mejor novia del mundo.
+         Antes, apreta F11 desde la compu y despúes el botón que aparece en la pantalla.`;
+        const dedicatoriaText = `
+        Ahora si mi vida hermosa,
+
+        Querido Amor:
+        Desde que te vi por primera vez, mi vida se puso de cabeza, en el buen sentido, obviamente. Cada día que pasa, pienso en vos y en cómo tu sonrisa me hace sentir que todo está bien. Tu risa es como un tema que no me canso de escuchar, y estar con vos es como tener el sol más brillante que te puedas imaginar.
+
+        Me encanta cómo convertís cualquier momento en algo especial solo con estar ahí. Tus ojos son como una puerta a otro mundo que quiero explorar cada vez que me mirás, y me siento el tipo más afortunado del mundo. La forma en la que te expresas, cómo te reís hasta de tus propios chistes, todo eso me hace sentir que estoy en el lugar correcto.
+
+        Quiero que sepas que cada palabra que te digo sale del fondo de mi corazón. Te admiro no solo por lo divina que sos por fuera, sino por la grandeza que llevás dentro. Sos mi inspiración, y cada día que estamos juntos, sigo confirmando que sos la mujer de mis sueños. 
+        Tus gestos, tu manera de ser, todo en vos me enseña algo nuevo y valioso.
+
+        Amo cada detalle tuyo, desde tu sonrisa cuando te hago un chiste, hasta cuando te enojas cuando te hago una joda. Quiero estar ahí para cada risa, cada lágrima, para cada momento, chiquito o grande, de tu vida. Me encanta compartirlo todo con vos, desde las cosas más simples como estar acostados riéndonos, hasta los momentos más importantes de nuestras vidas.
+
+        Te quiero con una fuerza que ni sabía que existía. Quiero armar recuerdos con vos, compartir sueños y bancar juntos todos los mambos que vengan. Sos mi lugar seguro, mi alegría, mi todo. Te prometo que siempre voy a estar a tu lado, apoyándote, amándote y cuidándote. Quiero envejecer con vos, formar mi familia con vos, seguir descubriendo juntos lo que el mundo tiene para ofrecernos, y que cada día sea una nueva aventura.
+
+        Y si, perdóname si esperabas algún detalle hecho a mano (como el ysy 😈) pero no soy muy bueno con esas cosas, también intente hacerte una carta, me enoje a la primera oración por que mi letra no es muy delicada que digamos, y acá estoy, haciéndote un detalle en algo que al menos se me da bien, se que no es mucho, pero lo hice con todo mi corazón y cariño.
+
+        Gracias por estar a mi lado siempre, gracias por demostrarme que el amor verdadero existe en esta generación de espontaneidad, gracias por quererme por como soy, estoy al tanto que no soy perfecto pero cada día me esfuerzo un poquito para que tengas la mejor de mis versiones.
+
+        Prometo cuidar de vos, ser tu compañero en todas tus aventuras, grandes o pequeñas. Prometo ser tu refugio cuando las tormentas lleguen, y tu sol cuando el cielo esté nublado. Quiero ser quien te haga sentir segura, quien te anime a perseguir tus sueños y quien celebre cada logro tuyo como si fuera mío. Quiero ser tu todo, como vos sos el mío.
+        
+        Ya cerrando esto, quiero que sepas que te amo con todo mi corazón, con mi ser y alma, estoy totalmente entregado a vos y así va a ser por el resto de mi vida, te amo mi princesita hermosa.`;
+
+        function typeWriter(text, i, elementId, speed = 65) {
+            if (i < text.length) {
+                document.getElementById(elementId).innerHTML += text.charAt(i);
+                if (elementId === 'dedicatoria') {
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
+                setTimeout(() => typeWriter(text, i + 1, elementId, speed), speed);
+            } else if (elementId === 'subtitulo') {
+                document.getElementById('playMusic').style.display = 'block';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            typeWriter(subtituloText, 0, 'subtitulo');
+
+            document.getElementById('playMusic').addEventListener('click', function() {
+                const audioPlayer = document.getElementById('audioPlayer');
+                audioPlayer.play().catch(e => {
+                    console.log("Error al reproducir audio:", e);
+                });
+
+                document.getElementById('dedicatoria').style.display = 'block';
+                setTimeout(() => {
+                    typeWriter(dedicatoriaText, 0, 'dedicatoria', 64);
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
